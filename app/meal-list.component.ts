@@ -7,17 +7,27 @@ import { MealComponent } from './meal.component';
   inputs: ['mealList'],
   directives: [MealComponent],
   template: `
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID#</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Calories</th>
-        </tr>
-      </thead>
-      <meal-display *ngFor="#currentMeal of mealList"></meal-display>
-    </table>
+    <div class="row">
+      <div class="col-md-1">
+        <h2>ID</h2>
+      </div>
+      <div class="col-md-3">
+        <h2>Name</h2>
+      </div>
+      <div class="col-md-4">
+        <h2>Description</h2>
+      </div>
+      <div class="col-md-2">
+        <h2>Calories</h2>
+      </div>
+      <div class="col-md-1">
+        <h2>Edit</h2>
+      </div>
+      <div class="col-md-1">
+        <h2>Delete</h2>
+      </div>
+    </div>
+    <meal-display *ngFor="#currentMeal of mealList" [meal]="currentMeal"></meal-display>
   `
 })
 export class MealListComponent {

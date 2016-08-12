@@ -6,10 +6,9 @@ import { MealListComponent } from './meal-list.component';
   selector: 'my-app',
   directives: [MealListComponent],
   template: `
-    <meal-list></meal-list>
+    <meal-list [mealList]="meals"></meal-list>
   `
 })
-
 export class AppComponent {
   public meals: Meal[];
   constructor(){
