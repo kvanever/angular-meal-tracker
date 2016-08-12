@@ -1,0 +1,21 @@
+{
+  "name": "meal-tracker",
+  "description": "angular project for Epicodus JS week 2",
+  "main": "",
+  "authors": [
+    "Kevin VanEvery <kvanever@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
