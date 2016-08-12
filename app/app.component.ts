@@ -7,6 +7,7 @@ import { MealListComponent } from './meal-list.component';
   selector: 'my-app',
   directives: [MealListComponent],
   template: `
+    <h1>Angular Meal Tracker</h1>
     <meal-list [mealList]="meals"></meal-list>
   `
 })
@@ -14,14 +15,9 @@ export class AppComponent {
   public meals: Meal[];
   constructor(){
     this.meals = [
-      new Meal("Breakfast", "Eggs and toast", 550, 0),
-      new Meal("Lunch", "Sandwich", 200, 1),
-      new Meal("Dinner", "Pasta", 700, 2)
+      new Meal("Breakfast", "Eggs and toast", 550),
+      new Meal("Lunch", "Sandwich", 200),
+      new Meal("Dinner", "Pasta", 700)
     ];
-  }
-  createMeal(mealArray: string[]): void {
-    this.meals.push(
-      new Meal(mealArray[0], mealArray[1], parseInt(mealArray[2]), this.meals.length)
-    );
   }
 }

@@ -14,7 +14,6 @@ import { AddNewMealComponent } from './add-new-meal.component';
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID#</th>
           <th>Name</th>
           <th>Description</th>
           <th>Calories</th>
@@ -22,7 +21,6 @@ import { AddNewMealComponent } from './add-new-meal.component';
       </thead>
       <tbody>
         <tr *ngFor="#meal of mealList | calories:filterCalories" (click)="mealClicked(meal)" [class.selected]="meal === selectedMeal">
-          <td>{{ meal.id }}</td>
           <td>{{ meal.name }}</td>
           <td>{{ meal.description }}</td>
           <td>{{ meal.calories }}</td>
@@ -57,5 +55,10 @@ export class MealListComponent {
   }
   mealClicked(clickedMeal: Meal): void {
     this.selectedMeal = clickedMeal;
+  }
+  createMeal(mealArray: string[]): void {
+    this.mealList.push(
+      new Meal(mealArray[0], mealArray[1], parseInt(mealArray[2]))
+    );
   }
 }

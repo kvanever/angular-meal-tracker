@@ -15,6 +15,7 @@ As a user…
 * I want options to view all foods, only high-calorie foods (more than 500 calories), or only lower-calorie foods (less than 500 calories).
 * I want to click a food to edit its name, details or calories (in case I decide to pretend my fries were 100 calories instead of 365).
 
+The app includes three dummy entries as examples of sample data and to demonstrate the calorie pipe filter.
 
 ## Setup/Installation Requirements
 
@@ -25,14 +26,6 @@ To install this repository
 * ``` $ npm install ``` to pull dependencies listed in package.json
 * ``` $ bower install ``` to pull dependencies listed in bower.json
 * ``` $ gulp serve ``` will launch the app in localhost.
-
-## Known Bugs
-
-None.
-
-## Support and contact details
-
-Come by during class if you have questions.
 
 ### License
 
