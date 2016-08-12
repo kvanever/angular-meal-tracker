@@ -20,10 +20,9 @@ export class AppComponent {
       new Meal("Dinner", "Pasta", 700, 2)
     ];
   }
-  createMeal(name: string, description: string, calories: string): void {
-    var intCalories = parseInt(calories)
+  createMeal(mealArray: string[]): void {
     this.meals.push(
-      new Meal(name, description, intCalories, this.meals.length)
+      new Meal(mealArray[0], mealArray[1], parseInt(mealArray[2]), this.meals.length)
     );
   }
 }
