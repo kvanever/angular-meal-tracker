@@ -2,12 +2,13 @@ import { Component } from 'angular2/core';
 import { Meal } from './meal.model';
 import { CaloriesPipe } from './calories.pipe';
 import { EditMealComponent } from './edit-meal.component';
+import { AddNewMealComponent } from './add-new-meal.component';
 
 @Component({
   selector: 'meal-list',
   pipes: [CaloriesPipe],
   inputs: ['mealList'],
-  directives: [EditMealComponent],
+  directives: [EditMealComponent, AddNewMealComponent],
   template: `
   <div class="row">
     <table class="table table-striped">
@@ -20,7 +21,7 @@ import { EditMealComponent } from './edit-meal.component';
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="#meal of mealList | calories:filterCalories" (click)="mealClicked(meal)">
+        <tr *ngFor="#meal of mealList | calories:filterCalories" (click)="mealClicked(meal)" [class.selected]="meal === selectedMeal">
           <td>{{ meal.id }}</td>
           <td>{{ meal.name }}</td>
           <td>{{ meal.description }}</td>
@@ -30,6 +31,7 @@ import { EditMealComponent } from './edit-meal.component';
     </table>
   </div>
   <div class="row">
+    <label>Filter by Calories</label>
     <select (change)="onChange($event.target.value)">
       <option value="meals">Show Meals (500 calories or more)</option>
       <option value="snacks">Show Snacks (less than 500 calories)</option>
@@ -37,7 +39,12 @@ import { EditMealComponent } from './edit-meal.component';
     </select>
   </div>
   <div class="row">
-    <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
+    <div class="col-md-6">
+      <add-new-meal (onAddNewMeal)="createMeal($event)"></add-new-meal>
+    </div>
+    <div class="col-md-6">
+      <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
+    </div>
   </div>
   `
 })

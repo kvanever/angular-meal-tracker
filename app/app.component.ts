@@ -1,14 +1,13 @@
 import { Component } from 'angular2/core';
 import { Meal } from './meal.model';
 import { MealListComponent } from './meal-list.component';
-import { AddNewMealComponent } from './add-new-meal.component';
+
 
 @Component({
   selector: 'my-app',
-  directives: [MealListComponent, AddNewMealComponent],
+  directives: [MealListComponent],
   template: `
     <meal-list [mealList]="meals"></meal-list>
-    <add-new-meal (onAddNewMeal)="createMeal($event)"></add-new-meal>
   `
 })
 export class AppComponent {
